@@ -16,13 +16,13 @@ function main()
             end
         end
 
-        % Consultar si se quiere ingresar otra funciˆun g
+        % Consultar si se quiere ingresar otra funciï¿½un g
         fprintf("SI: 1 -- NO: 0\n");
-        rpt = input('?Desea ingresar otra funciˆun g? (1/0): ');
+        rpt = input('?Desea ingresar otra funciÃ³n g? (1/0): ');
         if rpt == 0
-            % Consultar si se quiere ingresar otra funciˆun f
+            % Consultar si se quiere ingresar otra funciï¿½un f
             fprintf("SI: 1 -- NO: 0\n");
-            rpt = input('?Desea ingresar otra funciˆun f? (1/0): ');
+            rpt = input('?Desea ingresar otra funciÃ³n f? (1/0): ');
             if rpt == 0
                 % Consultar si se quiere finalizar el programa
                 fprintf("SI: 1 -- NO: 0\n");
@@ -40,28 +40,28 @@ function main()
 end
 
 function graficar_f()
-    f = input('Ingrese la funciˆun f: ', 's');
+    f = input('Ingrese la funciÃ³n f: ', 's');
     x = linspace(-10, 10, 10000); % Definir un rango de valores para x
-    y = eval(f); % Evaluar la funciˆun en cada valor de x
+    y = eval(f); % Evaluar la funciï¿½un en cada valor de x
     plot(x, y);
-    title('Grˆhfica de f');
+    title('Grï¿½hfica de f');
     xlabel('x');
     ylabel('f(x)');
     grid on;
 end
 
 function [g, i] = graficar_g()
-    g_str = input('Ingrese la funciˆun g: ', 's');
+    g_str = input('Ingrese la funciÃ³n g: ', 's');
     a = input('Ingrese el valor de a: ');
     b = input('Ingrese el valor de b: ');
 
-    % Definir la funciˆun anˆunima correctamente
+    % Definir la funciï¿½un anï¿½unima correctamente
     g = str2func(['@(x) ', g_str]);
 
     x = linspace(a, b, 10000); % Definir un rango de valores para x
-    y = g(x); % Evaluar la funciˆun en cada valor de x
+    y = g(x); % Evaluar la funciï¿½un en cada valor de x
     plot(x, y);
-    title('Grˆhfica de g en el intervalo [a, b]');
+    title('Grï¿½hfica de g en el intervalo [a, b]');
     xlabel('x');
     ylabel('g(x)');
     grid on;
@@ -74,7 +74,7 @@ function graficar_dg(g,i)
     x = linspace(i(1), i(2), 10000); % Definir un rango de valores para x
     y = dg(x); % Evaluar la derivada en cada valor de x
     plot(x, y);
-    title('Grˆhfica de la derivada de g en el intervalo [a, b]');
+    title('Grï¿½hfica de la derivada de g en el intervalo [a, b]');
     xlabel('x');
     ylabel('g''(x)');
     grid on;

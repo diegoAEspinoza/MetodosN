@@ -1,12 +1,12 @@
 function biseccion(error_esp)
   fprintf('\n');
-  f=input('Ingrese la funciˆun f(x):','s');
+  f=input('Ingrese la funciï¿½un f(x):','s');
   a=input('ingrese extremo izquierdo:');
   b=input('ingrese extremo derecho:');
   ezplot(f,[a,b]);
   grid on;
   fprintf('\n');
-  fprintf('iteraciˆun\ta\tb\txn\terror \n');
+  fprintf('iteraciï¿½un\ta\tb\txn\terror \n');
   e=abs(b-a)/2;
   r=-1;
   i=1;
@@ -25,5 +25,7 @@ function biseccion(error_esp)
     i=i+1;
   endwhile
   fprintf('\n');
-  fprintf('La aproximaciˆun buscada es: %5.9f\n',r);
+  fprintf('La aproximaciï¿½un buscada es: %5.9f\n',r);
 endfunction
+
+
