@@ -7,5 +7,7 @@ function bin_dec = binary_float(n,count_dec)
     b(i+1)=floor(x);
     y=x-b(i+1);
   endfor
-  bin_dec=[[1] [b] [-r]];
+  z = zeros(1,r-1);
+  printf("0,")
+  bin_dec=[[z] [1] [b]];
 endfunction

@@ -49,5 +49,5 @@ function bin_dec = binary_float(n,count_dec)
     b(i+1)=floor(x);
     y=x-b(i+1);
   endfor
-  bin_dec=[[1] [b] [-r]];
+  bin_dec=[ [b] [-r]];
 endfunction

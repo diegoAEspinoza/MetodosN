@@ -25,3 +25,5 @@ plot(x.^2+3*x)
 plot(2*x+3)
 legend()
 grid()
+
+x = inv(A)*b

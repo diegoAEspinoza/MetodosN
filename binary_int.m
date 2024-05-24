@@ -13,5 +13,5 @@ function bin_int = binary_int(n)
     b(p-i)=y-2*x;
     y=x;
   endfor
-    bin_int=[[signo] [1] b];
+    bin_int=[ [1] b];
  endfunction

@@ -1,4 +1,6 @@
-function bin = binary_machine(n,count_dec)
+function bin = binary_machine()
+  n = input("INgrese el número: ","d")
+
   # Validacion de Signo
   signo = 0;
     if n<0
@@ -11,23 +13,29 @@ function bin = binary_machine(n,count_dec)
   n_float = n-n_int
 
   if n_int != 0 && n_float != 0
-    n_int_bin = binary_int(n_int);
-    n_dec_bin = binary_float(n_float,count_dec);
+
+
 
   elseif n_int == 0
-    n_int_bin = [0]
-    n_dec_bin = binary_float(n_float,count_dec);
+
 
   else
-    n_int_bin = binary_int(n_int);
+    [n_int_bin , exp ] = binary_int(n_int);
+    [exp_b , - ] = binary_int(exp);
     n_dec_bin = [0];
+
   endif
+
+  # [b_sg_e] [bit_e] [b_sg_m] [b_m]
+
+
+
 
   bin = [[signo] [n_int_bin] [2] [n_dec_bin]];
 endfunction
 
 %Entero --> Binario
-function bin_int = binary_int(n)
+function [bin_int, p] = binary_int(n)
   p = floor(log(n)/log(2));
   y = n;
   b = [];
@@ -40,7 +48,7 @@ function bin_int = binary_int(n)
  endfunction
 
 %Decimal --> Binario
-function bin_dec = binary_float(n,count_dec)
+function [bin_dec, r] = binary_float(n,count_dec)
   r = floor(log(n)/log(2))*-1;
   y = n*(2^r)-1;
   b=[];
