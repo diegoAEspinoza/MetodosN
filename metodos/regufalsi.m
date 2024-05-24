@@ -27,6 +27,6 @@ function regufalsi(tolerancia)
     i=i+1;
   endwhile
   fprintf('\n');
-  fprintf('La aproximación buscada es: %5.9f\n',r);
+  fprintf('La aproximación buscada es: %.9f\n',r);
 endfunction
 

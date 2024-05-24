@@ -1,3 +1,6 @@
+% Primero cargar el paquete symbolic
+% pkg load symbolic
+
 function puntoFijo()
     syms x;
     continuar = true;
@@ -14,8 +17,8 @@ function puntoFijo()
             if rpt == 1
                 err = input("Ingrese el error que quiere: ");
                 fixedPoint(g,i,err);
-            end
-        end
+            endif
+        endif
 
         % Consultar si se quiere ingresar otra funci�un g
         fprintf("SI: 1 -- NO: 0\n");
@@ -32,13 +35,13 @@ function puntoFijo()
                     continuar = false;
                 else
                     main();
-                end
+                endif
             else
                 main();
-            end
-        end
-    end
-end
+            endif
+        endif
+    endwhile
+endfunction
 
 function graficar_f()
     f = input('Ingrese la función f: ', 's');
@@ -47,7 +50,7 @@ function graficar_f()
     xlabel('x');
     ylabel('f(x)');
     grid on;
-end
+endfunction
 
 function [g, i] = graficar_g()
     g_str = input('Ingrese la función g: ', 's');
@@ -63,7 +66,7 @@ function [g, i] = graficar_g()
     grid on;
 
     i = [a, b];
-end
+endfunction
 
 function graficar_dg(g,i)
     dg = abs(diff(g))
@@ -72,7 +75,7 @@ function graficar_dg(g,i)
     xlabel('x');
     ylabel('g''(x)');
     grid on;
-end
+endfunction
 
 function aprx = fixedPoint(f, interval, err)
     a = interval(1);
@@ -90,5 +93,6 @@ function aprx = fixedPoint(f, interval, err)
         end
         i = i + 1;
     end
-end
+    fprintf('La aproximación buscada es: %.9f\n',aprx;
+endfunction
 

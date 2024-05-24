@@ -6,7 +6,7 @@ function biseccion(error_esp)
   ezplot(f,[a,b]);
   grid on;
   fprintf('\n');
-  fprintf('iteraci�un\ta\tb\txn\terror \n');
+  fprintf('iteraco�un\ta\tb\txn\terror \n');
   e=abs(b-a)/2;
   r=-1;
   i=1;
@@ -25,7 +25,7 @@ function biseccion(error_esp)
     i=i+1;
   endwhile
   fprintf('\n');
-  fprintf('La aproximaci�un buscada es: %5.9f\n',r);
+  fprintf('La aproximaci�un buscada es: %.9f\n',r);
 endfunction
 
 

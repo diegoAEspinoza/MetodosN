@@ -1,38 +1,44 @@
 function t = secante()
-  f_s = input('Ingrese la función f(x):','s');
-  a = input('Ingrese extremo izquierdo:');
-  b = input('Ingrese extremo derecho:');
-  tol = input('Ingrese la tolerancia: ');
+  f_s = input('Ingrese la función f(x):','s'); #x^3+4*x^2-10
+  a = input('Ingrese extremo izquierdo:'); #1
+  b = input('Ingrese extremo derecho:'); #2
+  err = input('Ingrese la tolerancia: '); # 0.000001
 
-  aprox = inf; % Inicializar aprox con un valor grande para que entre en el bucle
-  f = sym(f_s);
-  df = diff(f);
+  aprox = 0;
+  f = sym(f_s);  df = diff(f);
 
   x0 = (a + b) / 2;
-  x = x0;
-  f0 = eval(f);
-  df0 = eval(df);
+  x = x0;  f0 = eval(f);  df0 = eval(df);
+  fprintf('n \t x_n \t f_n \t err\n');
+  fprintf('%d \t %.9f \t %.9f \t %.9f\n', 0, x0, f0, aprox);
+
 
   x1 = x0 - (f0 / df0);
-  x = x1;
-  f1 = eval(f);
+  x = x1;  f1 = eval(f);
+  aprox = abs(f1 - f0);
+  fprintf('%d \t %.9f \t %.9f \t %.9f\n', 1, x1, f1, aprox);
 
   lx  = [x0, x1];
   fx  = [f0, f1];
-  err = [0, abs(x0 - x1)];
-  i = 1;
-  fprintf('n \t x_n \t f_n \t err\n');
-  while abs(aprox) > tol % Corregido el criterio de convergencia
-    lx(i + 2)  = (lx(i) * fx(i + 1) - lx(i + 1) * fx(i)) / (fx(i + 1) - fx(i));
 
-    x = lx(i + 2);
-    fx(i + 2) = eval(f);
+  i = 3;
+  while true
 
-    aprox = lx(i + 2) - lx(i + 1); % Calcula la aproximación actual
-    err(i + 2) = abs(aprox); % Guarda el valor absoluto de la aproximación actual
-    fprintf('%d \t %.6f \t %.6f \t %.6f\n', i, lx(i + 2), fx(i + 2), err(i + 2));
+    lx(i)  = ( lx(i-2)*fx(i - 1) - lx(i - 1) * fx(i-2)) / (fx(i - 1) - fx(i-2));
+
+    x = lx(i);    fx(i) = eval(f);
+
+
+    aprox = abs(fx(i)-fx(i-1));
+    fprintf('%d \t %.9f \t %.9f \t %.9f\n', i, lx(i), fx(i), aprox);
+
+    if aprox < err
+            break;
+    endif
+
     i += 1;
   endwhile
-  t = [[0:(length(lx) - 1)]' lx' fx' err'];
+
+  fprintf('La aproximación buscada es: %.9f\n',lx(end);
 endfunction
 
