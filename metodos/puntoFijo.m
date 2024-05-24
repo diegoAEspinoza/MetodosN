@@ -1,4 +1,5 @@
-function main()
+function puntoFijo()
+    syms x;
     continuar = true;
     graficar_f();
     while continuar
@@ -41,9 +42,7 @@ end
 
 function graficar_f()
     f = input('Ingrese la función f: ', 's');
-    x = linspace(-10, 10, 10000); % Definir un rango de valores para x
-    y = eval(f); % Evaluar la funci�un en cada valor de x
-    plot(x, y);
+    ezplot(f);
     title('Gr�hfica de f');
     xlabel('x');
     ylabel('f(x)');
@@ -56,11 +55,8 @@ function [g, i] = graficar_g()
     b = input('Ingrese el valor de b: ');
 
     % Definir la funci�un an�unima correctamente
-    g = str2func(['@(x) ', g_str]);
-
-    x = linspace(a, b, 10000); % Definir un rango de valores para x
-    y = g(x); % Evaluar la funci�un en cada valor de x
-    plot(x, y);
+    g = sym(g_str);
+    ezplot(g,[a,b])
     title('Gr�hfica de g en el intervalo [a, b]');
     xlabel('x');
     ylabel('g(x)');
@@ -70,10 +66,8 @@ function [g, i] = graficar_g()
 end
 
 function graficar_dg(g,i)
-    dg = @(x) abs(gradient(g, x(1), x(2)));
-    x = linspace(i(1), i(2), 10000); % Definir un rango de valores para x
-    y = dg(x); % Evaluar la derivada en cada valor de x
-    plot(x, y);
+    dg = abs(diff(g))
+    ezplot(dg,i);
     title('Gr�hfica de la derivada de g en el intervalo [a, b]');
     xlabel('x');
     ylabel('g''(x)');
@@ -88,7 +82,7 @@ function aprx = fixedPoint(f, interval, err)
     i = 1;
     while true
         prev = aprx;
-        aprx = f(aprx);
+        x = prev; aprx = eval(f);
         diff = abs(aprx - prev);
         fprintf('%d\t%.9f\t%.9f\t%.9f\n', i, prev, aprx, diff);
         if diff < err

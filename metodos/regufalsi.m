@@ -1,4 +1,4 @@
-function regufalsi
+function regufalsi(tolerancia)
   fprintf('\n');
   f=input('Ingrese la función f(x):','s');
   a=input('ingrese extremo izquierdo:');
@@ -6,18 +6,18 @@ function regufalsi
   ezplot(f,[a,b]);
   grid on;
   fprintf('\n');
-  fprintf('iteración      a                      b              xn              error \n');
+  fprintf('iteración a b xn error \n');
   e=abs(b-a)/2;
   r=-1;
   i=1;
-  while  e >= 0.0001
+  while  e >= tolerancia
     x=a;  fa=eval(f);
     x=b;  fb=eval(f);
     va= r;
     r=(a*fb-b*fa)/(fb-fa);
 
     x=r;  fr=eval(f);
-    fprintf('%3.0f       %5.9f              %5.9f             %5.9f ',i,a,b,r) ;
+    fprintf('%3.0f       \t%5.9f\t              %5.9f\t             %5.9f\t',i,a,b,r) ;
     if sign(fa)*sign(fr)<=0
       b=r; e=abs(r-va); fprintf('%5.9f\n',e);
     else
