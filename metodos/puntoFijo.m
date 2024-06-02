@@ -93,6 +93,6 @@ function aprx = fixedPoint(f, interval, err)
         end
         i = i + 1;
     end
-    fprintf('La aproximación buscada es: %.9f\n',aprx;
+    fprintf('La aproximación buscada es: %.9f\n',aprx);
 endfunction
 

@@ -28,6 +28,6 @@ function  n_r()
     i = i + 1;
   endwhile
 
-  fprintf('La aproximación buscada es: %.9f\n',lx(end);
+  fprintf('La aproximación buscada es: %.9f\n',lx(end));
 endfunction
 
